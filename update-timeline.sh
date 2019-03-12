@@ -12,10 +12,3 @@ cat cost-data.csv >> output.csv
 sqlite3 -separator ',' awscli.sqlite3 '.import output.csv timeline'
 sqlite3 awscli.sqlite3 "select InstanceType, InstanceId from timeline;"
 
-#sqlite3 awscli.sqlite3 'drop table cost;'
-#sqlite3 -separator ',' awscli.sqlite3 '.import cost.csv cost'
-#sqlite3 awscli.sqlite3 "select InstanceCostPerHour from cost;"
-
-#aws ec2 create-tags \
-#	--resources ${instance_id} \
-#	--tags 'Key=CostCenter,Value=${}'
